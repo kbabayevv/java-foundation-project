@@ -8,6 +8,7 @@ import java.util.Scanner;
 
 import static config.CarConfig.cars;
 
+
 public class CarConfigService {
     public void createCar() {
         Scanner sc = new Scanner(System.in);
@@ -42,9 +43,10 @@ public class CarConfigService {
 
     public void getAllCars() {
         try {
-            if (cars.get(0) == null) {
+            if (cars.isEmpty()) {
+                throw new CarNotFoundException("List is empty");
             }
-        } catch (RuntimeException runtimeException) {
+        } catch (CarNotFoundException carNotFoundException) {
             System.out.println("Please add a new car.You didn't add a car!");
         }
         for (int i = 0; i < cars.size(); i++) {
