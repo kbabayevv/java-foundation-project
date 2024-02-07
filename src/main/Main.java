@@ -1,6 +1,5 @@
 package main;
 
-import config.CarConfig;
 import service.CarConfigService;
 
 import java.util.Scanner;
@@ -24,11 +23,11 @@ public class Main {
             } else if (menu == 2) {
                 carConfigService.getAllCars();
             } else if (menu == 3) {
-                carConfigService.getCarByID();
+                carConfigService.getCarById();
             } else if (menu == 4) {
                 carConfigService.updateCarByName();
             } else if (menu == 5) {
-                carConfigService.deleteCarByID();
+                carConfigService.deleteCarById();
             } else if (menu == 6) {
                 System.exit(0);
                 break;

@@ -1,12 +1,33 @@
 package model;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 public class Car {
+    private Long id;
     private String name;
     private String model;
     private String brand;
-    private String id;
+
     private String color;
-    private Integer releaseDate;
+    private LocalDate releaseDate;
+
+    public Car(Long id, String name, String model, String brand, String color, LocalDate releaseDate) {
+        this.id = id;
+        this.name = name;
+        this.model = model;
+        this.brand = brand;
+        this.color = color;
+        this.releaseDate = releaseDate;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -32,14 +53,6 @@ public class Car {
         this.brand = brand;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
     public String getColor() {
         return color;
     }
@@ -48,21 +61,22 @@ public class Car {
         this.color = color;
     }
 
-    public Integer getReleaseDate() {
+    public LocalDate getReleaseDate() {
         return releaseDate;
     }
 
-    public void setReleaseDate(Integer releaseDate) {
+    public void setReleaseDate(LocalDate releaseDate) {
         this.releaseDate = releaseDate;
     }
 
     @Override
     public String toString() {
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd-MMMM-yyyy");
         return "Name = " + name +
                 ", Model = " + model +
                 ", Brand = " + brand +
                 ", id = " + id +
                 ", Color = " + color +
-                ", Release Date = " + releaseDate + " year";
+                ", Release Date = " + dateTimeFormatter.format(releaseDate);
     }
 }
